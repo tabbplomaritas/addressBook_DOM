@@ -1,0 +1,207 @@
+html {
+  font-size: 62.7%;
+}
+
+body {
+  height: 100vh;
+  font-family: "Roboto", sans-serif;
+  background-image: linear-gradient(to right,
+      rgba(25, 83, 122, 0.007),
+      #ffd99b17
+    ),
+    url(images/postcards.jpg);
+  background-size: cover;
+  background-position: top;
+  padding: 1rem;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+#addContactForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 90%;
+  max-width: 70rem;
+  height: 36rem;
+  margin: 0 auto;
+  padding: 1rem;
+  border-radius: .5rem;
+  background-color: #f7f7f762;
+  box-shadow: 0 0 3px rgba(0,0,0,0.1);
+}
+
+#contactsDisplay {
+  /* background-color: royalblue; */
+  margin: 0 auto;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+
+.contactCard {
+  /* background-color: springgreen; */
+  list-style: none;
+  box-sizing: border-box;
+  /* padding: rem; */
+  color: rgb(48, 48, 48);
+  padding: .5rem;
+  font-size: 1.4rem;
+  height: auto;
+  width: 100%;
+  background-color: white;
+  border-radius: .5rem;
+  background-color: #f7f7f7e1;
+  box-shadow: 0 0 18px 1px rgba(1, 1, 8, 0.25);
+  transition: .3s all;
+  position: relative;
+}
+
+.contactCard:hover{
+  background-color: white;
+  transform: translateY(3px);
+}
+
+.contactCard li {
+  padding: .25rem;
+  }
+
+.contactCard li:hover{
+}  
+
+.trashCan {
+  border-radius: 50%;
+  background-color: white;
+  border: .5px solid black;
+  padding: .5rem;
+  position: absolute;
+  bottom: -0.5rem;
+  right: -0.5rem;
+  transition: .3s all;
+}
+
+.trashCan:hover {
+  color: red;
+  transform: scale(1.2);
+  border: .5px solid red;
+}
+
+
+h1 {
+  text-align: center;
+  background-color: rgba(25, 83, 122, 0.884);
+  color: white;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  font-size: 24px;
+  font-weight: normal;
+  border-radius: 5px;
+  margin-bottom: 0;
+}
+
+h2 {  
+  text-align: center;
+  color: rgb(48, 48, 48);
+  font-size: 2rem;
+  font-weight: normal;
+  border-radius: 5px;
+  margin-bottom: 0;
+
+}
+
+input {
+  margin: .5rem 0;
+  font-size: 1.5rem;
+  width: 90%;
+  padding: 13px 13px 13px 20px;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  border: 3px solid rgba(0, 0, 0, 0);
+  border-radius: .5rem;
+  transition: .2s all;
+}
+input:focus {
+  background-color: #fff;
+  border: 1px solid rgba(25, 83, 122, 0.884);
+  box-shadow: 0 0 3px rgba(25, 83, 122, 0.5);
+  outline: none;
+}
+
+#addContact_btn {
+  color: rgb(48, 48, 48);
+  border-radius: .5rem;
+  background-color: white;
+  margin: .5rem 0;
+  font-size: 1.5rem;
+  width: 90%;
+  padding: 13px 13px 13px 20px;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  transition: .2s all;
+}
+
+#addContact_btn:hover {
+  transform: translateY(2px);
+}
+
+
+
+@media only screen and (min-width: 568px){
+  #contactsDisplay {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 95%;
+  }
+
+    .contactCard {
+      width: 23rem;
+      height: 15rem;
+
+  }
+
+}
+/* 
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+li {
+  background-color: #fff;
+  height: 40px;
+  line-height: 40px;
+  color: #666;
+}
+li:nth-child(2n) {
+  background-color: #f7f7f7;
+}
+li span {
+  background-color: #e74c3c;
+  height: 40px;
+  margin-right: 20px;
+  text-align: center;
+  color: white;
+  width: 0;
+  display: inline-block;
+  transition: 0.25s linear;
+  opacity: 0;
+}
+li:hover span {
+  width: 40px;
+  opacity: 1;
+} */
