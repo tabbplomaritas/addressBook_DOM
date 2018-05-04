@@ -39,22 +39,24 @@ main {
   box-shadow: 0 0 3px rgba(0,0,0,0.1);
 }
 
-#contactsDisplay {
+.contactsDisplay {
   /* background-color: royalblue; */
-  margin: 0 auto;
   display: flex;
+  margin: 0 auto;
   flex-flow: column;
   justify-content: space-between;
   align-items: center;
   width: 100%;
 }
 
+.contactsDisplay h1{
+  display: block;
+  font-size: 6rem;
+}
 
 .contactCard {
-  /* background-color: springgreen; */
   list-style: none;
   box-sizing: border-box;
-  /* padding: rem; */
   color: rgb(48, 48, 48);
   padding: .5rem;
   font-size: 1.4rem;
@@ -79,6 +81,12 @@ main {
 
 .contactCard li:hover{
 }  
+
+.testClass {
+  background-color: red;
+  font-size: 3rem;
+  border: 10px solid blue;
+}
 
 .trashCan {
   border-radius: 50%;
@@ -160,7 +168,7 @@ input:focus {
 
 
 @media only screen and (min-width: 568px){
-  #contactsDisplay {
+  .contactsDisplay {
     margin-top: 2rem;
     flex-direction: row;
     flex-wrap: wrap;

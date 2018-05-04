@@ -1,5 +1,6 @@
 "use strict"
 
+
 class AddressBook {
   constructor(contacts) {
     this.contacts = [
@@ -43,54 +44,89 @@ class Contact {
 //create an instance of our Class AddressBook called myAddressBook;
 const myAddressBook = new AddressBook();
 
-//now lets DO some stuff with our new address book
-while (true) {
-  let userInput = prompt("Add, Remove, Print, Delete by name or Quit?");
-  let userInputLowercase = userInput.toLowerCase();
+// let addContact_btn = document.querySelector("button");
+// let contactForm = document.getElementById("addContactForm");
 
-  //user selects add
-  if (userInputLowercase === "add") {
-    const info = {
-      name: prompt("Enter Name"),
-      email: prompt("Enter email"),
-      phone: prompt("Enter phone"),
-      relation: prompt("Enter relationship")
-    }
-    myAddressBook.add(info);
-    console.log(`You have added ${info.name} to your address book.`);
 
-    //user selects remove
-  } else if (userInputLowercase === "remove") {
-    const indexPrompt = prompt("What's the index of item you want to delete?");
-    const index = indexPrompt.toLowerCase();
-    myAddressBook.deleteAt(index);
-    console.log(`item at index ${index} deleted`);
-    console.log(myAddressBook);
+// addContact_btn.addEventListener("click", test);
+// addContact_btn.addEventListener("click", newTest); 
 
-    //user selects print
-  } else if (userInputLowercase === "print") {
-    myAddressBook.print();
+function test(){
+ console.log("The test function is working");
+  document.querySelector("#contactsDisplay").style.display = "flex";
+};
 
-    //user selects delete by name
-  } else if (userInputLowercase === "delete by name") {
-    //set up some variables and stuff
-    let nameToDeletePrompt = prompt("What name do you want to delete?");
-    let nameToDelete = nameToDeletePrompt.toLowerCase();
-    let i = 0;
-    //set up a loop to iterate through all the contacts, checking for a match 
-    while (i < myAddressBook.contacts.length) {
-      if (nameToDelete === myAddressBook.contacts[i].name.toLowerCase()) {
-        myAddressBook.deleteByName([i]);
-        console.log(`${nameToDelete} has been deleted`);
-      }
-      i++;
-    }
+function newTest(){
+  console.log("The test NEW function is working");
+document.querySelector("#contactsDisplay").innerHTML =`
+  <ul class="contactCard">
+    <li class="contactCard_items">Name: ${myAddressBook.contacts[0].name}</li>
+    <li class="contactCard_items">Phone: ${myAddressBook.contacts[0].phone}</li>
+  </ul>`;
+}
 
-    //user selects quit
-  } else if (userInputLowercase === "quit") {
-    console.log("See ya later!");
-    break;
-  } else {
-    console.log("Invalid input.");
+function showContact(){
+
+  let arrayVariable = myAddressBook.contacts;
+  let arrayLength = arrayVariable.length;
+  let temp;
+  
+  for (let i = 0; i < arrayLength; i++) {
+    temp = document.createElement('div');
+    temp.className = 'contactCard';
+    temp.innerHTML = `
+    ${arrayVariable[i].name}
+    ${arrayVariable[i].phone}
+    ${arrayVariable[i].email}
+    ${arrayVariable[i].relation}`;
+
+    document.getElementById('container').appendChild(temp);
   }
 }
+
+showContact();
+
+// function createContactCard(){
+//   let contactsDisplay= document.getElementById("contactsDisplay");
+//   let createCard = document.createElement("ul");
+//   contactsDisplay.prepend(createCard);
+//   createCard.setAttribute("class","contactCard");
+//   createCard.innerHtml = `${myAddressBook.contacts[0].name}`
+//   // `
+//   // <li class="contactCard_items">Name: ${myAddressBook.contacts[0].name}</li>
+//   // <li class="contactCard_items">Phone: ${myAddressBook.contacts[0].phone}</li>
+//   // <li class="contactCard_items">Email: ${myAddressBook.contacts[0].email}</li>
+//   // <li class="contactCard_items">Relation: ${myAddressBook.contacts[0].relation}</li>`;
+ 
+// }
+
+// function displayContacts(){
+//   let contacts = myAddressBook.contacts;
+//   console.log(contacts);
+
+//   // for(let i =0; i > contacts.length;i++){
+//   document.querySelector("#contactsDisplay").innerHTML = contacts;
+//   // }
+
+
+// }
+
+// createContactCard();
+
+
+// displayContacts();
+
+// const person = {
+//   name: adam, 
+//   address:"123 st", 
+//   phone: 1234566,
+//   relation: myself
+// }
+
+
+// const newContact = document.createElement("div");
+// newContact.innerHTML = `
+// <p>Name: ${person.name} </p>
+// <p>Address: </p>
+// <p>Phone: </p>
+// <p>Releation: </p>`;
