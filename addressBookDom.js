@@ -4,34 +4,86 @@
 class AddressBook {
   constructor(contacts) {
     this.contacts = [
-      //set a few existing contacts so we can test page
+      //these are only hardcoded in for testing purpose
+      //TODO: remove these test contacts
       new Contact("Tabb", "tabbatharenea@gmail.com", "734-217-9944", "Self"),
       new Contact("Elle", "tabbatharenea@gmail.com", "734-217-9944", "Self"),
-      new Contact("Lindsey", "tabbatharenea@gmail.com", "734-217-9944", "Self")
+      new Contact("Lindsey", "tabbatharenea@gmail.com", "734-217-9944", "Self") 
     ];
   }
 
-  //now lets set up some methods for our AddressBook
-  add(info) {
-    const newContact = new Contact(info.name, info.email, info.phone, info.relation);
-    this.contacts.push(newContact);
+
+  // now lets set up some methods for our AddressBook
+  add() {
+    let name = document.getElementById("form_name").value;
+    let email = document.getElementById("form_email").value;
+    let phone = document.getElementById("form_phone").value;
+    let relation = document.getElementById("form_relation").value;
+
+    //the if statement condition requires that the user enter a name and an email or phone at minimum. 
+    if(name !== "" && (email !== "" || phone !== "")){
+      const info = {
+        name: name,
+        email: email,
+        phone: phone,
+        relation: relation
+      }
+
+      //create a new instance of new contact and upsh into contacts array
+      const newContact = new Contact(info.name, info.email, info.phone, info.relation);
+      myAddressBook.contacts.push(newContact);
+  
+      // reset input values
+      myAddressBook.clearInputs();
+      
+      //display all the contacts on the page
+      myAddressBook.display();
+
+    } else { //let them know they didn't enter enough info
+      alert("Please enter a new contact name and at least 1 method of contact info.")
+    }
+  }
+
+  // clears the user's input values
+  clearInputs(){
+    document.getElementById("form_name").value = "";
+    document.getElementById("form_email").value = "";
+    document.getElementById("form_phone").value = "";
+    document.getElementById("form_relation").value = "";
+  }
+
+  // pushes the info from the contacts array into the HTML
+  display(){
+
+    let arrayVariable = myAddressBook.contacts;
+    let arrayLength = arrayVariable.length;
+    let newContactCard;
+    
+    for (let i = 0; i < arrayLength; i++) {
+      newContactCard = document.createElement('div');
+      newContactCard.className = 'contactCard';
+      newContactCard.innerHTML = `
+      <p>${arrayVariable[i].name}</p>
+      <p>${arrayVariable[i].phone}</p>
+      <p>${arrayVariable[i].email}</p>
+      <p>${arrayVariable[i].relation}</p>
+      <i class="fa fa-trash-alt trashCan"></i>`;
+  
+      document.getElementById('contactsContainer').appendChild(newContactCard);
+    }
   }
 
   deleteAt(index) {
     this.contacts.splice(index, 1);
   }
 
-  print() {
-    for (let i = 0; i < myAddressBook.contacts.length; i++) {
-      console.log(`${[i]}. ${myAddressBook.contacts[i].name} P: ${myAddressBook.contacts[i].phone} E: ${myAddressBook.contacts[i].email} R: ${myAddressBook.contacts[i].relation}`);
-    }
-  }
 
   deleteByName(i) {
     this.contacts.splice(i, 1);
   }
 }
 
+//create the Contact class, which is just the contact blueprint. Actual contact instances will be created by the user's input
 class Contact {
   constructor(name, email, phone, relation) {
     this.name = name;
@@ -44,89 +96,8 @@ class Contact {
 //create an instance of our Class AddressBook called myAddressBook;
 const myAddressBook = new AddressBook();
 
-// let addContact_btn = document.querySelector("button");
-// let contactForm = document.getElementById("addContactForm");
+//click event listener for adding new contact
+document.getElementById("addContact_btn").addEventListener("click", myAddressBook.add); 
 
+myAddressBook.display();
 
-// addContact_btn.addEventListener("click", test);
-// addContact_btn.addEventListener("click", newTest); 
-
-function test(){
- console.log("The test function is working");
-  document.querySelector("#contactsDisplay").style.display = "flex";
-};
-
-function newTest(){
-  console.log("The test NEW function is working");
-document.querySelector("#contactsDisplay").innerHTML =`
-  <ul class="contactCard">
-    <li class="contactCard_items">Name: ${myAddressBook.contacts[0].name}</li>
-    <li class="contactCard_items">Phone: ${myAddressBook.contacts[0].phone}</li>
-  </ul>`;
-}
-
-function showContact(){
-
-  let arrayVariable = myAddressBook.contacts;
-  let arrayLength = arrayVariable.length;
-  let temp;
-  
-  for (let i = 0; i < arrayLength; i++) {
-    temp = document.createElement('div');
-    temp.className = 'contactCard';
-    temp.innerHTML = `
-    ${arrayVariable[i].name}
-    ${arrayVariable[i].phone}
-    ${arrayVariable[i].email}
-    ${arrayVariable[i].relation}`;
-
-    document.getElementById('container').appendChild(temp);
-  }
-}
-
-showContact();
-
-// function createContactCard(){
-//   let contactsDisplay= document.getElementById("contactsDisplay");
-//   let createCard = document.createElement("ul");
-//   contactsDisplay.prepend(createCard);
-//   createCard.setAttribute("class","contactCard");
-//   createCard.innerHtml = `${myAddressBook.contacts[0].name}`
-//   // `
-//   // <li class="contactCard_items">Name: ${myAddressBook.contacts[0].name}</li>
-//   // <li class="contactCard_items">Phone: ${myAddressBook.contacts[0].phone}</li>
-//   // <li class="contactCard_items">Email: ${myAddressBook.contacts[0].email}</li>
-//   // <li class="contactCard_items">Relation: ${myAddressBook.contacts[0].relation}</li>`;
- 
-// }
-
-// function displayContacts(){
-//   let contacts = myAddressBook.contacts;
-//   console.log(contacts);
-
-//   // for(let i =0; i > contacts.length;i++){
-//   document.querySelector("#contactsDisplay").innerHTML = contacts;
-//   // }
-
-
-// }
-
-// createContactCard();
-
-
-// displayContacts();
-
-// const person = {
-//   name: adam, 
-//   address:"123 st", 
-//   phone: 1234566,
-//   relation: myself
-// }
-
-
-// const newContact = document.createElement("div");
-// newContact.innerHTML = `
-// <p>Name: ${person.name} </p>
-// <p>Address: </p>
-// <p>Phone: </p>
-// <p>Releation: </p>`;
