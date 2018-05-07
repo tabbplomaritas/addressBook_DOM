@@ -52,13 +52,31 @@ class AddressBook {
     document.getElementById("form_relation").value = "";
   }
 
-  // pushes the info from the contacts array into the HTML
+  deleteButton(event){
+    let deleteArray = document.querySelectorAll(".trashCan");
+    console.log(deleteArray);
+    let thisClick = event.target;
+    // let index = deleteArray.indexOf(this);
+    console.log(thisClick.indexValue);
+
+    }
+
+    // window.onclick = function(e) {
+    //   console.log(e);
+      
+      // then e.srcElement.className has the class
+  // }​
+
   display(){
 
     let arrayVariable = myAddressBook.contacts;
     let arrayLength = arrayVariable.length;
     let newContactCard;
     
+    //lets clear the innerHTML of the contactsContainer so that deleted elements are removed and so that we don't replicate already displayed contacts
+    let contactsContainer =document.getElementById('contactsContainer');
+    contactsContainer.innerHTML ="";
+
     for (let i = 0; i < arrayLength; i++) {
       newContactCard = document.createElement('div');
       newContactCard.className = 'contactCard';
@@ -67,11 +85,13 @@ class AddressBook {
       <p>${arrayVariable[i].phone}</p>
       <p>${arrayVariable[i].email}</p>
       <p>${arrayVariable[i].relation}</p>
-      <i class="fa fa-trash-alt trashCan"></i>`;
-  
-      document.getElementById('contactsContainer').appendChild(newContactCard);
+      <img src="images/trash.png" class="trashCan" onclick = myAddressBook.deleteButton(event)></img>`;
+
+ 
+      contactsContainer.appendChild(newContactCard);
     }
   }
+
 
   deleteAt(index) {
     this.contacts.splice(index, 1);

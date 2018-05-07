@@ -6,10 +6,10 @@ body {
   height: 100vh;
   font-family: "Roboto", sans-serif;
   background-image: linear-gradient(to right,
-      rgba(25, 83, 122, 0.007),
-      #ffd99b17
+  rgba(0,0,0,0.6),
+  rgba(0,0,0,0.6)
     ),
-    url(images/postcards.jpg);
+    url(images/addressbg.jpg);
   background-size: cover;
   background-position: top;
   /* padding: 1rem; */
@@ -36,8 +36,8 @@ main {
   height: 36rem;
   margin: 0 auto;
   padding: 1rem;
-  border-radius: .5rem;
-  background-color: #f7f7f762;
+  border-radius: 5px;
+  background-color: rgb(179,178,176, 0.6);
   box-shadow: 0 0 3px rgba(0,0,0,0.1);
 }
 
@@ -64,7 +64,7 @@ main {
   font-size: 1.4rem;
   height: 10rem;
   width: 90%;
-  border-radius: .5rem;
+  border-radius: 5px;
   background-color: #f7f7f7e1;
   box-shadow: 0 0 18px 1px rgba(1, 1, 8, 0.25);
   transition: .3s all;
@@ -100,10 +100,10 @@ main {
   transition: .3s all;
 }
 
-.trashCan:hover {
+/* .trashCan:hover {
   transform: scale(1.2);
   border: .8px solid red;
-}
+} */
 
 
 h1 {
@@ -132,12 +132,12 @@ input {
   margin: .5rem 0;
   font-size: 1.5rem;
   width: 90%;
-  padding: 13px 13px 13px 20px;
+  padding: 10px;
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   border: 3px solid rgba(0, 0, 0, 0);
-  border-radius: .5rem;
+  border-radius: 5px;
   transition: .2s all;
 }
 input:focus {
