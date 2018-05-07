@@ -57,15 +57,9 @@ class AddressBook {
     console.log(deleteArray);
     let thisClick = event.target;
     // let index = deleteArray.indexOf(this);
-    console.log(thisClick.indexValue);
+    // console.log(thisClick.indexValue);
 
     }
-
-    // window.onclick = function(e) {
-    //   console.log(e);
-      
-      // then e.srcElement.className has the class
-  // }​
 
   display(){
 

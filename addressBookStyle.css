@@ -42,7 +42,6 @@ main {
 }
 
 #contactsContainer {
-  /* background-color: royalblue; */
   display: flex;
   margin: 1.5rem auto;
   flex-flow: column;
@@ -51,11 +50,6 @@ main {
   width: 100%;
   max-width: 85rem;
 }
-
-/* .contactsDisplay h1{
-  display: block;
-  font-size: 6rem;
-} */
 
 .contactCard {
   color: rgb(48, 48, 48);
@@ -100,10 +94,10 @@ main {
   transition: .3s all;
 }
 
-/* .trashCan:hover {
+.trashCan:hover {
   transform: scale(1.2);
   border: .8px solid red;
-} */
+}
 
 
 h1 {
@@ -169,6 +163,11 @@ input:focus {
   outline: none;
 }
 
+/* removes red border on unfilled inputs on firefox */
+:not(output):-moz-ui-invalid {
+  box-shadow: none;
+}
+
 
 @media only screen and (min-width: 568px){
   #contactsContainer {
@@ -182,17 +181,13 @@ input:focus {
 
     .contactCard {
       margin: 1rem;
-      width: 19rem;
-      height: 12rem;
+      width: 20rem;
+      height: 10rem;
 
   }
 
 }
 
-/* removes red border on unfilled inputs on firefox */
-:not(output):-moz-ui-invalid {
-  box-shadow: none;
-}
 
 @media only screen and (min-width: 768px){
   #contactsContainer {
@@ -206,8 +201,8 @@ input:focus {
 
     .contactCard {
       margin: .5rem;
-      width: 19rem;
-      height: 12rem;
+      width: 20rem;
+      height: 10rem;
 
   }
 
