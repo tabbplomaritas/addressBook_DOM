@@ -71,6 +71,7 @@ class AddressBook {
     }
 
   display(counter){
+    myAddressBook.counter=0;
     let arrayVariable = myAddressBook.contacts;
     let arrayLength = arrayVariable.length;
     let newContactCard;
