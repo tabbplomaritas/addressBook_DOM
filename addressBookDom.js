@@ -6,10 +6,11 @@ class AddressBook {
     this.contacts = [
       //these are only hardcoded in for testing purpose
       //TODO: remove these test contacts
-      // new Contact("Tabb", "tabbatharenea@gmail.com", "734-217-9944", "Self"),
-      // new Contact("Elle", "tabbatharenea@gmail.com", "734-217-9944", "Self"),
-      // new Contact("Lindsey", "tabbatharenea@gmail.com", "734-217-9944", "Self") 
+      new Contact("Tabb", "tabbatharenea@gmail.com", "734-217-9944", "Self"),
+      new Contact("Elle", "tabbatharenea@gmail.com", "734-217-9944", "Self"),
+      new Contact("Lindsey", "tabbatharenea@gmail.com", "734-217-9944", "Self") 
     ];
+    this.counter = 0;
   }
 
 
@@ -36,6 +37,8 @@ class AddressBook {
       // reset input values
       myAddressBook.clearInputs();
       
+      this.counter++;
+
       //display all the contacts on the page
       myAddressBook.display();
 
@@ -53,16 +56,21 @@ class AddressBook {
   }
 
   deleteButton(event){
-    let deleteArray = document.querySelectorAll(".trashCan");
-    console.log(deleteArray);
-    let thisClick = event.target;
+    let index = event.target.id;
+    console.log(index);
+    myAddressBook.contacts.splice(index, 1);
+    myAddressBook.display();
+
+
+    // let deleteArray = document.querySelectorAll(".trashCan");
+    // console.log(deleteArray);
+    // let thisClick = event.target;
     // let index = deleteArray.indexOf(this);
     // console.log(thisClick.indexValue);
 
     }
 
-  display(){
-
+  display(counter){
     let arrayVariable = myAddressBook.contacts;
     let arrayLength = arrayVariable.length;
     let newContactCard;
@@ -79,10 +87,15 @@ class AddressBook {
       <p>${arrayVariable[i].phone}</p>
       <p>${arrayVariable[i].email}</p>
       <p>${arrayVariable[i].relation}</p>
-      <img src="images/trash.png" class="trashCan" onclick = myAddressBook.deleteButton(event)></img>`;
+      <img src="images/trash.png" id="${myAddressBook.counter}" class="trashCan" onclick = myAddressBook.deleteButton(event)></img>`;
 
- 
+     
+      
       contactsContainer.appendChild(newContactCard);
+      let trashButton = document.querySelectorAll("img");
+      // trashButton.id = myAddressBook.counter;
+      console.log(trashButton);
+      myAddressBook.counter++;
     }
   }
 
