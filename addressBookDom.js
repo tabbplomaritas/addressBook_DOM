@@ -6,9 +6,9 @@ class AddressBook {
     this.contacts = [
       //these are only hardcoded in for testing purpose
       //TODO: remove these test contacts
-      new Contact("Tabb", "tabbatharenea@gmail.com", "734-217-9944", "Self"),
-      new Contact("Elle", "tabbatharenea@gmail.com", "734-217-9944", "Self"),
-      new Contact("Lindsey", "tabbatharenea@gmail.com", "734-217-9944", "Self") 
+      // new Contact("Tabb", "tabbatharenea@gmail.com", "734-217-9944", "Self"),
+      // new Contact("Elle", "tabbatharenea@gmail.com", "734-217-9944", "Self"),
+      // new Contact("Lindsey", "tabbatharenea@gmail.com", "734-217-9944", "Self") 
     ];
   }
 
